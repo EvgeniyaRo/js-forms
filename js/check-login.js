@@ -11,7 +11,6 @@ $(document).ready(function() {
 			},
 
 			_srtUpListeners: function(){
-				// $('.notify').css('display', 'none');
 				$('#logIn').on('submit', loginValidation._validateLogin);
 			},
 
@@ -31,13 +30,19 @@ $(document).ready(function() {
 				if ( $('#emailInput').val() === '' ) {
 					$('#emptyEmailError').show();
 					validEmail = false;
+				//проверка на формат, соответствует ли регулярному выражению
 				} else if ( !pattern.test($('#emailInput').val())) {
 					validEmail = false;
 					$('#emptyEmailError').hide();
 					$('#formatEmailError').show();
+				//проверка, зарегистрирован ли в базе
+				} else if ( $('#emailInput').val() !== userEmail) {
+					validEmail = false;
+					$('#ErrorPasswordRecovery').show();
 				} else {
 					validEmail = true;
 					$('#emptyEmailError').hide();
+					$('#ErrorPasswordRecovery').hide();
 				}
 
 
@@ -45,20 +50,22 @@ $(document).ready(function() {
 				if ( $('#passwordInput').val() === '' ) {
 					validPassword = false;
 					$('#emptyPasswordError').show();
+				//проверка, зарегистрирован ли в базе и соответствует ли Email
+				} else if ( $('#passwordInput').val() == userPass && $('#emailInput').val() == userEmail) {
+						validPassword = true;
+						$('#emptyPasswordError').hide();
+						$('#ErrorPasswordRecovery').hide();
+						
 				} else {
-					validPassword = true;
-					$('#emptyPasswordError').hide();
+					validPassword = false;
+					$('#ErrorPasswordRecovery').show();
 				}
-
+				// если все верно - отправляем форму и переходим на страницу успех
 				if (validEmail == true && validPassword == true ) {
 					loginValidation.valid = true;
 				} else {
 					loginValidation.valid = false;
 				}
-
-
-
-				console.log(loginValidation.valid);
 
 				if ( loginValidation.valid == false ) {
 					event.preventDefault();
@@ -67,30 +74,6 @@ $(document).ready(function() {
 
 				}
 
-
-
-
-
-				
-				// $.each(inputs , function(index, val){
-				// 	var input = $(val);
-				// 	var value = input.val().trim();
-				// 	var emptyInputError = input.siblings('#emptyInputError');
-				// 	var ErrorPasswordRecovery = input.siblings('#ErrorPasswordRecovery');
-				// 	console.log(value);
-					
-				// 	if ( value == '' ) {
-						
-				// 		// alert("нету");
-
-
-				// 	} else {
-				// 		// alert("есть");
-				// 	// 	// commentValid = false;
-				// 	// 	// $('.notify--error').css('display', 'block');
-				// 	}
-
-				// })
 			}
 
 

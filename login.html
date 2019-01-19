@@ -13,14 +13,6 @@
 
 <body class="login-page">
 
-	<style>
-		.notify {
-			display: none;
-		}
-	</style>
-
-
-
 	<div class="login-page-content">
 		<div class="login-page">
 			<div class="header-top pl-50 pt-45 mb-0">
@@ -41,14 +33,14 @@
 						<h1 class="text-center login-heading mt-0 pt-0">Вход на сайт</h1>
 						<form action="success.html" id="logIn">
 							
-							<div id='emptyEmailError' class="notify notify--error mb-20">Введите email</div>
+							<div id='emptyEmailError' class="notify notify--error mb-20 hidden">Введите email</div>
 
-							<div id='formatEmailError' class="notify notify--error mb-20">Неверный формат email</div>
+							<div id='formatEmailError' class="notify notify--error mb-20 hidden">Неверный формат email</div>
 
-							<div id='emptyPasswordError' class="notify notify--error mb-20">Введите пароль</div>
+							<div id='emptyPasswordError' class="notify notify--error mb-20 hidden">Введите пароль</div>
 
 
-							<div id='ErrorPasswordRecovery' class="notify no-paddings">
+							<div id='ErrorPasswordRecovery' class="notify no-paddings hidden">
 								<div class="notify no-radius-bottom notify--error">Неверный email или пароль</div>
 								<div class="notify no-radius-top">
 									<p>Введите верные данные для входа или воспользуйтесь

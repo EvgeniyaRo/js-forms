@@ -35,7 +35,6 @@ $(document).ready(function() {
 					var value = input.val().trim();
 
 					if (value) {
-						console.log(5555);
 						$('#form_comment').unbind('submit').submit();
 
 					} else {
