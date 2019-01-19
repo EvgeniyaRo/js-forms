@@ -8,7 +8,11 @@
 	<link rel="stylesheet" href="libs/bootstrap-4-grid/grid.min.css" />
 	<link rel="stylesheet" href="css/main.css" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+
+
+	
 </head>
+
 
 <body class="index-page">
 	<div class="container user-content section-page">
@@ -19,12 +23,13 @@
 					<img src="img/avatars/avatar.jpg" alt="avatar" />
 				</div>
 			</div>
-			<div class="comment-add-block__right">
+			<form class="comment-add-block__right" action="success.html" id="form_comment">
 				<h6 class="comment-add-block__right-title">Егор Казаков</h6>
-				<div class="notify notify--error">Комментарий не может быть пустым</div>
-				<textarea class="textarea textarea--comment-add" name="add_comment" placeholder="Присоединиться к обсуждению..."></textarea>
-				<a class="button" href="#">Опубликовать</a>
-			</div>
+				<div class="notify notify--error hidden">Комментарий не может быть пустым</div>
+				<textarea class="textarea textarea--comment-add" name="add_comment" id="add_comment" placeholder="Присоединиться к обсуждению..."></textarea>
+				<input type="submit" value="Опубликовать" class="button" id="submit">
+				
+			</form>
 		</div>
 		<p>
 			<a href="index.html">Вернуться на главную</a>

@@ -13,7 +13,8 @@ body {
 	position: relative;
 }
 
-
+/*пользовательские*/
+.hidden { display: none; }
 
 /* fix for top margin collapsing and vertical scroll prevent for body tag, when body height = 100% */
 

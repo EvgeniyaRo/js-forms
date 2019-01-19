@@ -12,6 +12,15 @@
 </head>
 
 <body class="login-page">
+
+	<style>
+		.notify {
+			display: none;
+		}
+	</style>
+
+
+
 	<div class="login-page-content">
 		<div class="login-page">
 			<div class="header-top pl-50 pt-45 mb-0">
@@ -30,21 +39,30 @@
 				<div class="login-form__background--registration">
 					<div class="login-form p-10 pt-30 pb-30">
 						<h1 class="text-center login-heading mt-0 pt-0">Вход на сайт</h1>
-						<form>
-							<div class="notify notify--error mb-20">Введите email</div>
-							<div class="notify notify--error mb-20">Неверный формат email</div>
-							<div class="notify notify--error mb-20">Введите пароль</div>
-							<div class="notify no-paddings">
+						<form action="success.html" id="logIn">
+							
+							<div id='emptyEmailError' class="notify notify--error mb-20">Введите email</div>
+
+							<div id='formatEmailError' class="notify notify--error mb-20">Неверный формат email</div>
+
+							<div id='emptyPasswordError' class="notify notify--error mb-20">Введите пароль</div>
+
+
+							<div id='ErrorPasswordRecovery' class="notify no-paddings">
 								<div class="notify no-radius-bottom notify--error">Неверный email или пароль</div>
 								<div class="notify no-radius-top">
 									<p>Введите верные данные для входа или воспользуйтесь
 										<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p>
 								</div>
 							</div>
-							<input class="input-form-registration" name="email" type="email" placeholder="Email" />
-							<input class="input-form-registration" name="password" type="password" placeholder="Пароль" />
+							
+							<input id="emailInput" class="input-form-registration" name="email" type="text" placeholder="Email" />
+
+							<input id="passwordInput" class="input-form-registration" name="password" type="password" placeholder="Пароль" />
+
 							<div class="text-center pt-30">
-								<a class="button button--enter pl-50 pr-50" href="#">Войти</a>
+								<input type="submit" value="Войти" class="button button--enter pl-50 pr-50" id="submit">
+
 							</div>
 						</form>
 					</div>
